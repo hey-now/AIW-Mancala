@@ -1,0 +1,8 @@
+body {
+    background-image: url(https://imgur.com/1ACffud.jpeg);
+    background-color: black;
+    background-size: cover;
+}
+#logo {
+    height: 100px;
+}

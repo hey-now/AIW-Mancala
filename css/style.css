@@ -67,6 +67,20 @@ body {
     height: 15vh;
     width: 20vh;
 }
+#thanosPlanets > div {
+    border: 5px solid rgba(20, 24, 24, .8);
+    border-radius: 10%;
+    height: 15vh;
+    width: 20vh;
+}
+#thanosPlanets > div:hover {
+    border: 5px solid rgba(20, 24, 24, .8);
+    border-radius: 10%;
+    height: 15vh;
+    width: 20vh;
+    transition: all .2s ease-in-out;
+    transform: scale(1.25);
+}
 #actionPane {
     border: 5px solid rgba(20, 24, 24, .8);
     height: 38vh;
@@ -79,11 +93,23 @@ body {
     display: flex;
     flex-direction: row;
 }
+#avengersPlanets:hover {
+    display: flex;
+    flex-direction: row;
+}
 #avengersPlanets > div {
     border: 5px solid rgba(20, 24, 24, .8);
     border-radius: 10%;
     height: 15vh;
     width: 20vh;
+}
+#avengersPlanets > div:hover {
+    border: 5px solid rgba(20, 24, 24, .8);
+    border-radius: 10%;
+    height: 15vh;
+    width: 20vh;
+    transition: all .2s ease-in-out;
+    transform: scale(1.25);
 }
 #asgard {
     background: url("https://imgur.com/nFAciei.png");

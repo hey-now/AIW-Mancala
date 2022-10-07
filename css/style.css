@@ -16,7 +16,13 @@ body {
 }
 #logo {
     height: 100px;
-    position: 20vh;
+    margin-left: 42vh;
+    margin-top: 5vh;
+}
+#logo2 {
+    height: 500px;
+    margin-left: 100px;
+    margin-top: -190px;
 }
 #board {
     margin-top: 20vh;
@@ -27,7 +33,7 @@ body {
     border: 15px solid rgba(20, 24, 24, .8);
     border-radius: 5%;
     height: 60vh;
-    width: 150vh;
+    width: 175vh;
     background-color: rgba(20, 24, 24, .8);
 }
 #collectThanos {
@@ -45,6 +51,7 @@ body {
     height: 115%;
     background: rgba(0, 0, 0, .6);
     border-radius: 10%;
+    flex-direction: column;
 }
 #collectAvengers {
     height: 100%;
@@ -84,10 +91,7 @@ body {
 #actionPane {
     border: 5px solid rgba(20, 24, 24, .8);
     height: 38vh;
-}
-#logo {
-    margin-left: 42vh;
-    margin-top: 10vh;
+    flex-direction: column;
 }
 #avengersPlanets {
     display: flex;

@@ -16,12 +16,12 @@ body {
 }
 #logo {
     height: 100px;
-    margin-left: 42vh;
+    margin-left: 45vh;
     margin-top: 5vh;
 }
 #logo2 {
     height: 500px;
-    margin-left: 100px;
+    margin-left: 110px;
     margin-top: -190px;
 }
 #board {
@@ -138,4 +138,16 @@ body {
 #knowhere {
     background: url("https://imgur.com/vvWG8Lk.png");
     background-size: cover;
+}
+#help, #settings {
+    width: 50px;
+    margin-top: -20px;
+}
+#help:hover {
+    transition: all .2s ease-in-out;
+    transform: scale(1.25);
+}
+#settings:hover {
+    transition: all .2s ease-in-out;
+    transform: scale(1.25);
 }

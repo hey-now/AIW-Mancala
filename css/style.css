@@ -20,6 +20,7 @@ body {
     position: 20vh;
 }
 #board {
+    margin-top: 20vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -32,6 +33,10 @@ body {
     border: 5px solid red;
     height: 100%;
     width: 100vh;
+    background: url("https://imgur.com/zxwZCEK.png") no-repeat;
+    background-size: 20vh;
+    background-position: center;
+    background-color: black;
     /* order: 1; */
 }
 #midBoard {
@@ -43,6 +48,10 @@ body {
     height: 100%;
     width: 100vh;
     align-self: flex-end;
+    background: url("https://imgur.com/MNtAcuT.jpeg") no-repeat;
+    background-size: 20vh;
+    background-position: center;
+    background-color: black;
 }
 #thanosPlanets {
     display: flex;
@@ -57,6 +66,11 @@ body {
     border: 5px solid yellow;
     height: 38vh;
 }
+#logo {
+    margin-left: 42vh;
+    margin-top: 10vh;
+    background-color: black;
+}
 #avengersPlanets {
     display: flex;
     flex-direction: row;
@@ -65,4 +79,31 @@ body {
     border: 5px solid blue;
     height: 10vh;
     width: 20vh;
+}
+#asgard {
+    background: url("https://imgur.com/nFAciei.png");
+    background-size: 100%;
+}
+#earth {
+    background: url("https://imgur.com/4DSpTbQ.png");
+    background-size: 100%;
+}
+#vormir {
+    background: url("https://imgur.com/mruvGg3.jpeg");
+    background-size: 100%;
+}
+#sakaar {
+    background: url("https://imgur.com/0Dj71F0.png");
+    background-size: 100%;
+}
+#xandar {
+    background: url("https://imgur.com/VYwk4FY.png");
+    background-size: 100%;
+}
+#knowhere {
+    background: url("https://imgur.com/vvWG8Lk.png");
+    background-size: 75%;
+}
+#collectThanos {
+
 }

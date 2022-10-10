@@ -39,7 +39,7 @@ body {
 #collectThanos {
     height: 100%;
     width: 100vh;
-    background: url("https://imgur.com/b72AXbF.png") no-repeat;
+    background: url("https://imgur.com/0h04Uob.jpeg") no-repeat;
     background-size: 30vh;
     background-position: center;
     background-color: black;
@@ -159,4 +159,30 @@ body {
     margin-left: 70px;
     width: 900px;
     visibility: hidden;
+}
+.stones {
+    background-color: rgba(0, 0, 0, .6);
+    display: flex;
+    color: white; 
+    height: 50px;
+    width: 50px;
+    margin-left: 50px;
+    margin-top: 30px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+#stonesAvengers, #stonesThanos {
+    height: 100px;
+    width: 100px;
+    background-color: rgba(0, 0, 0, .6);
+    display: flex;
+    margin-top: 150px;
+    margin-left: 60px;
+    color: white;
+    text-align: center;
+    justify-content: center;
+    font-size: larger;
+    align-items: center;
 }

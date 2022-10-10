@@ -25,7 +25,7 @@ let thanosPlanetsEl = document.getElementById('thanosPlanets');
 // let asgardStonesEl = document.getElementById('stonesA').textContent;
 // let earthStonesEl = document.getElementById('stonesE').textContent;
 
-// let evtTarget = avengersPlanetEl.addEventListener('click', handleFirstMove);
+let evtTarget = avengersPlanetEl.addEventListener('click', handleFirstMove);
 
 /*----- event listeners -----*/
 
@@ -99,16 +99,15 @@ function handleInstruct(evt) {
     //     return document.getElementById("thanosPlanets").innerHTML = '<img src="'+randomStone[randNum]+'" />';
     // }
     
-// function handleFirstMove (evt) {
-//     if(evt.path[0].id === 'r0c0') {
-//     let stones = evt.path[0].innerText
-//     for (let i = 0; i <= stones; i++) {
-//         // board[0][0] = 0;
-//         // board[0][1] = stones + 1; 
-//         // }
-//     }
-//     return;
-// }
+function handleFirstMove (evt) {
+    if(evt.path[0].id === 'r0c0') {
+    let stones = evt.path[0].innerText
+    for (let i = 0; i <= stones; i++) {
+        console.log(i);
+        }
+    }
+    return;
+}
 // evt.target.textContent = '0';
 
 // sakaarStonesEl = sakaarStonesEl + 1;

@@ -25,7 +25,7 @@ let thanosPlanetsEl = document.getElementById('thanosPlanets');
 // let asgardStonesEl = document.getElementById('stonesA').textContent;
 // let earthStonesEl = document.getElementById('stonesE').textContent;
 
-let evtTarget = avengersPlanetEl.addEventListener('click', handlePlayMove);
+// let evtTarget = avengersPlanetEl.addEventListener('click', handleFirstMove);
 
 /*----- event listeners -----*/
 
@@ -69,7 +69,6 @@ function renderBoard() {
         // cellEl.style.color = COLORS[cellVal];
         // cellEl.innerText = PLAYERS[cellVal];
         cellEl.innerText = cellVal;
-        console.log(cellVal)
       });
     });
   }
@@ -100,21 +99,16 @@ function handleInstruct(evt) {
     //     return document.getElementById("thanosPlanets").innerHTML = '<img src="'+randomStone[randNum]+'" />';
     // }
     
-function handlePlayMove (evt) {
-    console.log(evt);
-if(evt.path[0].id === 'stonesV') {
-    let stones = evt.path[0].innerText
-    for (let i = 0; i <= stones; i++) {
-    sakaarStonesEl.value + 1;
-    console.log(sakaarStonesEl);
-    knowhereStonesEl + 1;
-    xandarStonesEl + 1;
-    asgardStonesEl + 1;
-    earthStonesEl + 1;
-        }
-    }
-    return;
-}
+// function handleFirstMove (evt) {
+//     if(evt.path[0].id === 'r0c0') {
+//     let stones = evt.path[0].innerText
+//     for (let i = 0; i <= stones; i++) {
+//         // board[0][0] = 0;
+//         // board[0][1] = stones + 1; 
+//         // }
+//     }
+//     return;
+// }
 // evt.target.textContent = '0';
 
 // sakaarStonesEl = sakaarStonesEl + 1;

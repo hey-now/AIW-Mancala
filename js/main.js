@@ -50,7 +50,7 @@ init();
 
 function init() {
     board = [4, 4, 4, 4, 4, 4, 0, 4, 4, 4, 4, 4, 4, 0]; // board
-    turn = 1;
+    turn = 1; //avengers turn
     winner = null;
     boardIds = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n'];
     render();
@@ -102,8 +102,13 @@ function handleFirstMove (evt) {
     let currPos = POSITION[evt.target.id];
     let stones = board[currPos];
     board[currPos] = 0;
-    console.log('currentPos/Stones ', currPos, stones);
-    if (stones === 0) return;
+    console.log('tagname', evt.target.tagName, 'stones', stones, 'currPos', currPos);
+    if (stones === 0 || 
+        (turn === 1 && currPos >= 7) ||
+        (turn === -1 && currPos <= 6) ||
+        (evt.target.tagName !== 'DIV')
+        )
+        return;
     currPos += 1;
     while (stones > 0) {
         console.log('hello: ', stones)
@@ -128,9 +133,16 @@ function handleFirstMove (evt) {
                 currPos = 0;
             }
     };
-    renderBoard();
+    console.log('currPos:', currPos);
+    if (turn === 1 && currPos === 7) {
+        renderBoard()
+    } else if (turn === -1 && currPos === 0) {
+        renderBoard();
+    } else {
+        turn *= -1;
+        renderBoard();
+    }
 }
-
 // evt.target.textContent = '0';
 
 // sakaarStonesEl = sakaarStonesEl + 1;

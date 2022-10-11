@@ -63,11 +63,9 @@ function render() {
 function renderBoard() {
     // Iterate over the array
     board.forEach(function(num, Idx) {
-        console.log('num/Idx:', num, Idx);
       // Iterate over the cells in the current collumn (colArr)
         const cellId = `${boardIds[Idx]}`;
         const cellEl = document.getElementById(cellId);
-        console.log('cellEl: ', cellEl);
         // cellEl.style.color = COLORS[cellVal];
         // cellEl.innerText = PLAYERS[cellVal];
         cellEl.innerHTML = num;
@@ -104,15 +102,35 @@ function handleFirstMove (evt) {
     let currPos = POSITION[evt.target.id];
     let stones = board[currPos];
     board[currPos] = 0;
-    console.log('currentPos: ', stones);
-    // while () {
-
-    // };
-    // for (let i = stones; i > 0; i--) {
-
-    // }
+    console.log('currentPos/Stones ', currPos, stones);
+    if (stones === 0) return;
+    currPos += 1;
+    while (stones > 0) {
+        console.log('hello: ', stones)
+        if(currPos !== 6 && currPos !== 13) {
+            board[currPos] += 1;
+            stones--;
+            currPos++;
+        } else if (currPos === 6 && turn === 1) {
+            board[currPos] += 1;
+            stones--;
+            currPos++;
+        } else if (currPos === 6 && turn !== 1) {
+            currPos++;
+        } else if (currPos === 13 && turn === -1) {
+            board[currPos] += 1;
+            stones--;
+            currPos++;
+        } else if (currPos === 13 && turn !== -1) {
+            currPos++;
+        }
+            if(currPos === 14) {
+                currPos = 0;
+            }
+    };
     renderBoard();
 }
+
 // evt.target.textContent = '0';
 
 // sakaarStonesEl = sakaarStonesEl + 1;

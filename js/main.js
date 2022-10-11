@@ -96,26 +96,29 @@ function handleInstruct(evt) {
     //     let randNum = rndNum(1, 6);
     //     const randomStone = new Array();
     //     return document.getElementById("thanosPlanets").innerHTML = '<img src="'+randomStone[randNum]+'" />';
-    // }
-    
+    // } 
+
 function handleFirstMove (evt) {
     let currPos = POSITION[evt.target.id];
     let stones = board[currPos];
     board[currPos] = 0;
-    console.log('tagname', evt.target.tagName, 'stones', stones, 'currPos', currPos);
+    console.log('turn:', turn);
+    // console.log('tagname', evt.target.tagName, 'stones', stones, 'currPos', currPos);
     if (stones === 0 || 
         (turn === 1 && currPos >= 7) ||
         (turn === -1 && currPos <= 6) ||
-        (evt.target.tagName !== 'DIV')
+        (evt.target.tagName !== 'DIV') ||
+        (winner === 1) ||
+        (winner === -1)
         )
         return;
     currPos += 1;
     while (stones > 0) {
-        console.log('hello: ', stones)
         if(currPos !== 6 && currPos !== 13) {
             board[currPos] += 1;
             stones--;
             currPos++;
+            console.log(board[currPos]);
         } else if (currPos === 6 && turn === 1) {
             board[currPos] += 1;
             stones--;
@@ -129,23 +132,51 @@ function handleFirstMove (evt) {
         } else if (currPos === 13 && turn !== -1) {
             currPos++;
         }
-            if(currPos === 14) {
-                currPos = 0;
+        if(currPos === 14) {
+            currPos = 0;
+        } else if (board[currPos] === 0 && turn === 1 && currPos < 6) {
+            console.log('this is a zero spot for avengers');
+        } else if (board[currPos] === 0 && turn === -1 && currPos > 6 && currPos < 13) {
+            console.log('this is a zero spot for Thanos');
             }
-    };
-    console.log('currPos:', currPos);
+        }
+    // console.log('currPos:', currPos);
     if (turn === 1 && currPos === 7) {
         renderBoard()
     } else if (turn === -1 && currPos === 0) {
         renderBoard();
     } else {
         turn *= -1;
+        // winner = getWinner();
         renderBoard();
     }
 }
-// evt.target.textContent = '0';
 
-// sakaarStonesEl = sakaarStonesEl + 1;
-// knowhereStonesEl = knowhereStonesEl + 1;
-// xandarStonesEl = xandarStonesEl + 1;
+function getWinner() {
+    return checkAvengersRow() || checkThanosRow();
+}
 
+function checkAvengersRow() {
+    let sum = 0;
+    for (let i = 0; i < 6; i++) {
+        sum += board[i];
+    }
+    if (sum === 0 && board[6] > board[13]) {
+        winner = 1;
+    } else if (sum === 0 && board[6] < board[13]) {
+        winner = -1;
+    };
+    return winner;
+}
+function checkThanosRow() {
+    let sum = 0;
+    for (let i = 6; i < 13; i++) {
+        sum += board[i];
+    }
+    if (sum === 0 && board[6] > board[13]) {
+        winner = 1;
+    } else if (sum === 0 && board[6] < board[13]) {
+        winner = -1;
+    };
+    return winner;
+}

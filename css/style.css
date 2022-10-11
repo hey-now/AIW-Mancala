@@ -180,3 +180,15 @@ body {
     font-size: larger;
     align-items: center;
 }
+#turnA {
+    color: aqua;
+    font-size: larger;
+    margin-left: 800px;
+    margin-top: -200px;
+}
+#turnT {
+    color: aqua;
+    font-size: larger;
+    margin-left: 100px;
+    margin-top: 10px;
+}

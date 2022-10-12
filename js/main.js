@@ -54,7 +54,15 @@ function render() {
 }
 
 function renderMessage() {
-
+    if (winner === 1) {
+        document.getElementById('avengersGif').style.visibility = 'visible';
+        document.getElementById('turnA').style.visibility = 'visible';
+        document.getElementById('turnA').style.innerHTML = 'Avengers Win!';
+    } else if (winner === -1) {
+        document.getElementById('thanosGif').style.visibility = 'visible';
+        document.getElementById('turnT').style.visibility = 'visible';
+        document.getElementById('turnT').style.innerHTML = 'Thanos Wins';
+    }
 }
 
 function renderBoard() {
@@ -167,42 +175,21 @@ function handleFirstMove (evt) {
         if(currPos === 14) {
             currPos = 0;
         }
-        // checking for zero on avengers side
-        if (board[currPos - 1] === 1 && currPos <= 6 && turn === 1) {
-            console.log('this is a zero spot for avengers');
-            console.log('board/currPos6: ', board[currPos], '/', currPos);
-            board[currPos - 1] = 0;
-            board[6] += 1;
-            if (currPos - 1 === 0) {
-                board[6] += board[12];
-                board[12] = 0;
-            } else if (currPos - 1 === 1) {
-                board[6] += board[11];
-                board[11] = 0;
-            } else if (currPos - 1 === 2) {
-                board[6] += board[10];
-                board[10] = 0;
-            } else if (currPos - 1 === 3) {
-                board[6] += board[9];
-                board[9] = 0;
-            } else if (currPos - 1 === 4) {
-                board[6] += board[8];
-                board[8] = 0;
-            } else if (currPos - 1 === 5) {
-                board[6] += board[7];
-                board[7] = 0;
-            }
-        }
-    } 
+    }
+    if (turn === 1) {
+        checkAvengersSide(currPos)
+    }
+    if (turn === -1) {
+        checkThanosSide(currPos)
+    }
     if (turn === 1 && currPos === 7) {
         renderBoard()
     } else if (turn === -1 && currPos === 0) {
         renderBoard();
-    } else {
-        turn *= -1;
-        winner = getWinner();
-        renderBoard();
     }
+    turn *= -1;
+    winner = getWinner();
+    renderBoard();
 }
 
 function getWinner() {
@@ -233,6 +220,77 @@ function checkThanosRow() {
     };
     return winner;
 }
+
+
+function checkAvengersSide(currPos) {
+            // checking for zero on avengers side
+            if (board[currPos - 1] === 1 && currPos < 6 && turn === 1) {
+                console.log('this is a zero spot for avengers');
+                console.log('board/currPos6: ', board[currPos], '/', currPos);
+                board[currPos - 1] = 0;
+                if (currPos - 1 === 0) {
+                    board[6] += 1;
+                    board[6] += board[12];
+                    board[12] = 0;
+                } else if (currPos - 1 === 1) {
+                    board[6] += 1;
+                    board[6] += board[11];
+                    board[11] = 0;
+                } else if (currPos - 1 === 2) {
+                    board[6] += 1;
+                    board[6] += board[10];
+                    board[10] = 0;
+                } else if (currPos - 1 === 3) {
+                    board[6] += 1;
+                    board[6] += board[9];
+                    board[9] = 0;
+                } else if (currPos - 1 === 4) {
+                    board[6] += 1;
+                    board[6] += board[8];
+                    board[8] = 0;
+                } else if (currPos - 1 === 5) {
+                    board[6] += 1;
+                    board[6] += board[7];
+                    board[7] = 0;
+                }
+            }
+}
+
+function checkThanosSide(currPos) {
+        //checking for zero on thanos side
+        if (board[currPos - 1] === 1 && currPos > 6 && turn === -1 && (currPos - 1) !== 6) {
+            console.log('this is a zero spot for thanos');
+            console.log('board/currPos6: ', board[currPos], '/', currPos);
+            board[currPos - 1] = 0;
+            if (currPos - 1 === 7) {
+                board[13] += 1;
+                board[13] += board[5];
+                board[5] = 0;
+            } else if (currPos - 1 === 8) {
+                board[13] += 1;
+                board[13] += board[4];
+                board[4] = 0;
+            } else if (currPos - 1 === 9) {
+                board[13] += 1;
+                board[13] += board[3];
+                board[3] = 0;
+            } else if (currPos - 1 === 10) {
+                board[13] += 1;
+                board[13] += board[2];
+                board[2] = 0;
+            } else if (currPos - 1 === 11) {
+                board[13] += 1;
+                board[13] += board[1];
+                board[1] = 0;
+            } else if (currPos - 1 === 12) {
+                board[13] += 1;
+                board[13] += board[0];
+                board[0] = 0;
+            }
+        }
+}
+
+
 // function sleep() {
 //     function displayText(str) {
 //     console.log(str)

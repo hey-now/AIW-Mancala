@@ -36,7 +36,7 @@ let stonesEl = document.getElementsByClassName('stones').textContent;
 document.getElementById('avengersPlanets').addEventListener('click', handleFirstMove);
 document.getElementById('thanosPlanets').addEventListener('click', handleFirstMove);
 document.getElementById('help').addEventListener('click', handleInstruct);
-
+document.querySelector('button').addEventListener('click', init);
 /*----- functions -----*/
 init();
 

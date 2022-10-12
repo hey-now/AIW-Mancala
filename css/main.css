@@ -206,6 +206,14 @@ body {
     margin-top: 40px;
     height: 15vh;
     width: 20vh;
+    border-radius: 10%;   
+}
+button {
+    background-color: rgba(20, 24, 24, .8);
+    color: white;
+    margin-left: 450px;
+    margin-top: 20px;
     border-radius: 10%;
-    
+    border-color: lightgray;
+    border-width: 5px;
 }

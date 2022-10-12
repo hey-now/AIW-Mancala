@@ -138,42 +138,61 @@ function handleFirstMove (evt) {
         )
         return;
     currPos += 1;
-    checkZero += 1;
-    console.log('outside of while loop currPos + value/ checkZero + value: ', currPos, '+',board[currPos], '/', checkZero, '+', board[checkZero]);
+    // console.log('outside of while loop currPos + value/ checkZero + value: ', currPos, '+',board[currPos], '/', checkZero, '+', board[checkZero]);
     while (stones > 0) {
+        // sleep();
         if(currPos !== 6 && currPos !== 13) {
             board[currPos] += 1;
             stones--;
             currPos++;
             checkZero++;
-            console.log('boardValue/currPos1/checkZero/boardValue[checkZero]: ', board[currPos], '/', currPos, '/', checkZero, '/', board[checkZero]);
+            // console.log('boardValue/currPos1/checkZero/boardValue[checkZero]: ', board[currPos], '/', currPos, '/', checkZero, '/', board[checkZero]);
         } else if (currPos === 6 && turn === 1) {
             board[currPos] += 1;
             stones--;
             currPos++;
-            console.log('board/currPos2: ', board[currPos]);
+            // console.log('board/currPos2: ', board[currPos]);
         } else if (currPos === 6 && turn !== 1) {
             currPos++;
-            console.log('board/currPos3: ', board[currPos]);
+            // console.log('board/currPos3: ', board[currPos]);
         } else if (currPos === 13 && turn === -1) {
             board[currPos] += 1;
             stones--;
             currPos++;
-            console.log('board/currPos4: ', board[currPos]);
+            // console.log('board/currPos4: ', board[currPos]);
         } else if (currPos === 13 && turn !== -1) {
             currPos++;
-            console.log('board/currPos5: ', board[currPos]);
+            // console.log('board/currPos5: ', board[currPos]);
         }
         if(currPos === 14) {
             currPos = 0;
         }
-        // if (board[checkZero] === 0 && turn === 1 && checkZero < 6) {
-        //     console.log('this is a zero spot for avengers');
-        //     console.log('board/currPos6: ', board[currPos]);
-        // } else if (board[checkZero] === 0 && turn === -1 && checkZero > 6 && checkZero < 13) {
-        //     console.log('this is a zero spot for Thanos');
-        //     console.log('board/currPos7: ', board[currPos]);
-        // }
+        // checking for zero on avengers side
+        if (board[currPos - 1] === 1 && currPos <= 6 && turn === 1) {
+            console.log('this is a zero spot for avengers');
+            console.log('board/currPos6: ', board[currPos], '/', currPos);
+            board[currPos - 1] = 0;
+            board[6] += 1;
+            if (currPos - 1 === 0) {
+                board[6] += board[12];
+                board[12] = 0;
+            } else if (currPos - 1 === 1) {
+                board[6] += board[11];
+                board[11] = 0;
+            } else if (currPos - 1 === 2) {
+                board[6] += board[10];
+                board[10] = 0;
+            } else if (currPos - 1 === 3) {
+                board[6] += board[9];
+                board[9] = 0;
+            } else if (currPos - 1 === 4) {
+                board[6] += board[8];
+                board[8] = 0;
+            } else if (currPos - 1 === 5) {
+                board[6] += board[7];
+                board[7] = 0;
+            }
+        }
     } 
     if (turn === 1 && currPos === 7) {
         renderBoard()
@@ -181,7 +200,7 @@ function handleFirstMove (evt) {
         renderBoard();
     } else {
         turn *= -1;
-        // winner = getWinner();
+        winner = getWinner();
         renderBoard();
     }
 }
@@ -214,3 +233,23 @@ function checkThanosRow() {
     };
     return winner;
 }
+// function sleep() {
+//     function displayText(str) {
+//     console.log(str)
+//  }
+//  var i = 0;
+ 
+//  var a = [12];
+ 
+//  function timedLoop() {
+//  setTimeout(function () {
+//      displayText(a[i]);
+//      i++;
+//      if(i < a.length) {
+//          timedLoop();
+//      }
+//  }, 2000)
+//  }
+ 
+//  timedLoop();
+// }

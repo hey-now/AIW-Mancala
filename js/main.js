@@ -64,13 +64,17 @@ function renderMessage() {
         document.getElementById('turnT').style.visibility = 'hidden';
         document.getElementById('logo').style.opacity = '15%';
         document.getElementById('logo2').style.opacity = '15%';
-
+        
     } else if (winner === -1) {
         document.getElementById('thanosGif').style.visibility = 'visible';
         document.getElementById('turnT').style.visibility = 'visible';
+        document.getElementById('thanosGif').style.marginLeft = '420px';
+        document.getElementById('turnT').style.marginLeft = '450px';
         document.getElementById('turnT').innerHTML = 'Thanos Wins';
         document.getElementById('avengersGif').style.visibility = 'hidden';
         document.getElementById('turnA').style.visibility = 'hidden';
+        document.getElementById('logo').style.opacity = '15%';
+        document.getElementById('logo2').style.opacity = '15%';
     }
 }
 

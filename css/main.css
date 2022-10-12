@@ -183,13 +183,13 @@ body {
 #turnT {
     color: aqua;
     font-size: larger;
-    margin-left: 90px;
+    margin-left: 70px;
     margin-top: -200px;
     text-align: start;
 }
 #thanosGif {
-    margin-left: 30px;
-    margin-top: 25px;
+    margin-left: 50px;
+    margin-top: 40px;
     height: 15vh;
     width: 20vh;
     border-radius: 10%;
@@ -197,13 +197,13 @@ body {
 #turnA {
     color: aqua;
     font-size: larger;
-    margin-left: 775px;
-    margin-top: -175px;
+    margin-left: 800px;
+    margin-top: -195px;
     text-align: start;
 }
 #avengersGif {
-    margin-left: 380px;
-    margin-top: 10px;
+    margin-left: 775px;
+    margin-top: 40px;
     height: 15vh;
     width: 20vh;
     border-radius: 10%;

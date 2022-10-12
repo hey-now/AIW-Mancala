@@ -57,9 +57,14 @@ function renderMessage() {
     if (winner === 1) {
         document.getElementById('avengersGif').style.visibility = 'visible';
         document.getElementById('turnA').style.visibility = 'visible';
+        document.getElementById('avengersGif').style.marginLeft = '420px';
+        document.getElementById('turnA').style.marginLeft = '440px';
         document.getElementById('turnA').innerHTML = 'Avengers Win!';
         document.getElementById('thanosGif').style.visibility = 'hidden';
         document.getElementById('turnT').style.visibility = 'hidden';
+        document.getElementById('logo').style.opacity = '15%';
+        document.getElementById('logo2').style.opacity = '15%';
+
     } else if (winner === -1) {
         document.getElementById('thanosGif').style.visibility = 'visible';
         document.getElementById('turnT').style.visibility = 'visible';

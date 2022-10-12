@@ -78,18 +78,34 @@ function renderBoard() {
         document.getElementById('thanosGif').style.visibility = 'visible';
         document.getElementById('turnT').style.visibility = 'visible';
     }
-  }
+}
 
 function handleInstruct(evt) {
     evt.preventDefault();
     if (document.getElementById('instructions').style.visibility === 'hidden') {
         document.getElementById('logo').style.visibility = 'hidden';
         document.getElementById('logo2').style.visibility = 'hidden';
+        document.getElementById('thanosGif').style.visibility = 'hidden';
+        document.getElementById('turnT').style.visibility = 'hidden';
+        document.getElementById('avengersGif').style.visibility = 'hidden';
+        document.getElementById('turnA').style.visibility = 'hidden';
         document.getElementById('instructions').style.visibility = 'visible';   
-    } else {
+    } else if (turn === 1) {
         document.getElementById('logo').style.visibility = 'visible';
         document.getElementById('logo2').style.visibility = 'visible';
         document.getElementById('instructions').style.visibility = 'hidden';
+        document.getElementById('thanosGif').style.visibility = 'hidden';
+        document.getElementById('turnT').style.visibility = 'hidden';
+        document.getElementById('avengersGif').style.visibility = 'visible';
+        document.getElementById('turnA').style.visibility = 'visible';
+    } else if (turn === -1) {
+        document.getElementById('logo').style.visibility = 'visible';
+        document.getElementById('logo2').style.visibility = 'visible';
+        document.getElementById('instructions').style.visibility = 'hidden';
+        document.getElementById('thanosGif').style.visibility = 'visible';
+        document.getElementById('turnT').style.visibility = 'visible';
+        document.getElementById('avengersGif').style.visibility = 'hidden';
+        document.getElementById('turnA').style.visibility = 'hidden';
     }
 }
 

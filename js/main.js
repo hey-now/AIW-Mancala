@@ -57,11 +57,15 @@ function renderMessage() {
     if (winner === 1) {
         document.getElementById('avengersGif').style.visibility = 'visible';
         document.getElementById('turnA').style.visibility = 'visible';
-        document.getElementById('turnA').style.innerHTML = 'Avengers Win!';
+        document.getElementById('turnA').innerHTML = 'Avengers Win!';
+        document.getElementById('thanosGif').style.visibility = 'hidden';
+        document.getElementById('turnT').style.visibility = 'hidden';
     } else if (winner === -1) {
         document.getElementById('thanosGif').style.visibility = 'visible';
         document.getElementById('turnT').style.visibility = 'visible';
-        document.getElementById('turnT').style.innerHTML = 'Thanos Wins';
+        document.getElementById('turnT').innerHTML = 'Thanos Wins';
+        document.getElementById('avengersGif').style.visibility = 'hidden';
+        document.getElementById('turnA').style.visibility = 'hidden';
     }
 }
 
@@ -80,11 +84,14 @@ function renderBoard() {
         document.getElementById('turnT').style.visibility = 'hidden';
         document.getElementById('avengersGif').style.visibility = 'visible';
         document.getElementById('turnA').style.visibility = 'visible';
+        document.getElementById('turnA').innerHTML = 'Avengers Turn!';
     } else {
         document.getElementById('avengersGif').style.visibility = 'hidden';
         document.getElementById('turnA').style.visibility = 'hidden';
         document.getElementById('thanosGif').style.visibility = 'visible';
         document.getElementById('turnT').style.visibility = 'visible';
+        document.getElementById('turnT').innerHTML = 'Thanos Turn!';
+
     }
 }
 
@@ -186,10 +193,12 @@ function handleFirstMove (evt) {
         renderBoard()
     } else if (turn === -1 && currPos === 0) {
         renderBoard();
+    } else {
+        turn *= -1;
+        renderBoard();
     }
-    turn *= -1;
     winner = getWinner();
-    renderBoard();
+    render();
 }
 
 function getWinner() {

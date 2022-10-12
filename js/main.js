@@ -78,34 +78,18 @@ function renderBoard() {
         document.getElementById('thanosGif').style.visibility = 'visible';
         document.getElementById('turnT').style.visibility = 'visible';
     }
-}
+  }
 
 function handleInstruct(evt) {
     evt.preventDefault();
     if (document.getElementById('instructions').style.visibility === 'hidden') {
         document.getElementById('logo').style.visibility = 'hidden';
         document.getElementById('logo2').style.visibility = 'hidden';
-        document.getElementById('thanosGif').style.visibility = 'hidden';
-        document.getElementById('turnT').style.visibility = 'hidden';
-        document.getElementById('avengersGif').style.visibility = 'hidden';
-        document.getElementById('turnA').style.visibility = 'hidden';
         document.getElementById('instructions').style.visibility = 'visible';   
-    } else if (turn === 1) {
+    } else {
         document.getElementById('logo').style.visibility = 'visible';
         document.getElementById('logo2').style.visibility = 'visible';
         document.getElementById('instructions').style.visibility = 'hidden';
-        document.getElementById('thanosGif').style.visibility = 'hidden';
-        document.getElementById('turnT').style.visibility = 'hidden';
-        document.getElementById('avengersGif').style.visibility = 'visible';
-        document.getElementById('turnA').style.visibility = 'visible';
-    } else if (turn === -1) {
-        document.getElementById('logo').style.visibility = 'visible';
-        document.getElementById('logo2').style.visibility = 'visible';
-        document.getElementById('instructions').style.visibility = 'hidden';
-        document.getElementById('thanosGif').style.visibility = 'visible';
-        document.getElementById('turnT').style.visibility = 'visible';
-        document.getElementById('avengersGif').style.visibility = 'hidden';
-        document.getElementById('turnA').style.visibility = 'hidden';
     }
 }
 
@@ -125,8 +109,9 @@ function handleInstruct(evt) {
 function handleFirstMove (evt) {
     let currPos = POSITION[evt.target.id];
     let stones = board[currPos];
+    let checkZero = currPos - 1;
     board[currPos] = 0;
-    console.log('turn:', turn);
+    console.log('turn/currPos:', turn, '/', currPos);
     // console.log('tagname', evt.target.tagName, 'stones', stones, 'currPos', currPos);
     if (stones === 0 || 
         (turn === 1 && currPos >= 7) ||
@@ -137,34 +122,43 @@ function handleFirstMove (evt) {
         )
         return;
     currPos += 1;
+    checkZero += 1;
+    console.log('outside of while loop currPos + value/ checkZero + value: ', currPos, '+',board[currPos], '/', checkZero, '+', board[checkZero]);
     while (stones > 0) {
         if(currPos !== 6 && currPos !== 13) {
             board[currPos] += 1;
             stones--;
             currPos++;
-            console.log(board[currPos]);
+            checkZero++;
+            console.log('boardValue/currPos1/checkZero/boardValue[checkZero]: ', board[currPos], '/', currPos, '/', checkZero, '/', board[checkZero]);
         } else if (currPos === 6 && turn === 1) {
             board[currPos] += 1;
             stones--;
             currPos++;
+            console.log('board/currPos2: ', board[currPos]);
         } else if (currPos === 6 && turn !== 1) {
             currPos++;
+            console.log('board/currPos3: ', board[currPos]);
         } else if (currPos === 13 && turn === -1) {
             board[currPos] += 1;
             stones--;
             currPos++;
+            console.log('board/currPos4: ', board[currPos]);
         } else if (currPos === 13 && turn !== -1) {
             currPos++;
+            console.log('board/currPos5: ', board[currPos]);
         }
         if(currPos === 14) {
             currPos = 0;
-        } else if (board[currPos] === 0 && turn === 1 && currPos < 6) {
-            console.log('this is a zero spot for avengers');
-        } else if (board[currPos] === 0 && turn === -1 && currPos > 6 && currPos < 13) {
-            console.log('this is a zero spot for Thanos');
-            }
         }
-    // console.log('currPos:', currPos);
+        // if (board[checkZero] === 0 && turn === 1 && checkZero < 6) {
+        //     console.log('this is a zero spot for avengers');
+        //     console.log('board/currPos6: ', board[currPos]);
+        // } else if (board[checkZero] === 0 && turn === -1 && checkZero > 6 && checkZero < 13) {
+        //     console.log('this is a zero spot for Thanos');
+        //     console.log('board/currPos7: ', board[currPos]);
+        // }
+    } 
     if (turn === 1 && currPos === 7) {
         renderBoard()
     } else if (turn === -1 && currPos === 0) {

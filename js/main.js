@@ -36,7 +36,7 @@ let stonesEl = document.getElementsByClassName('stones').textContent;
 document.getElementById('avengersPlanets').addEventListener('click', handleFirstMove);
 document.getElementById('thanosPlanets').addEventListener('click', handleFirstMove);
 document.getElementById('help').addEventListener('click', handleInstruct);
-
+document.querySelector('button').addEventListener('click', init);
 /*----- functions -----*/
 init();
 
@@ -57,15 +57,24 @@ function renderMessage() {
     if (winner === 1) {
         document.getElementById('avengersGif').style.visibility = 'visible';
         document.getElementById('turnA').style.visibility = 'visible';
+        document.getElementById('avengersGif').style.marginLeft = '420px';
+        document.getElementById('turnA').style.marginLeft = '440px';
         document.getElementById('turnA').innerHTML = 'Avengers Win!';
         document.getElementById('thanosGif').style.visibility = 'hidden';
         document.getElementById('turnT').style.visibility = 'hidden';
+        document.getElementById('logo').style.opacity = '15%';
+        document.getElementById('logo2').style.opacity = '15%';
+        
     } else if (winner === -1) {
         document.getElementById('thanosGif').style.visibility = 'visible';
         document.getElementById('turnT').style.visibility = 'visible';
+        document.getElementById('thanosGif').style.marginLeft = '420px';
+        document.getElementById('turnT').style.marginLeft = '450px';
         document.getElementById('turnT').innerHTML = 'Thanos Wins';
         document.getElementById('avengersGif').style.visibility = 'hidden';
         document.getElementById('turnA').style.visibility = 'hidden';
+        document.getElementById('logo').style.opacity = '15%';
+        document.getElementById('logo2').style.opacity = '15%';
     }
 }
 

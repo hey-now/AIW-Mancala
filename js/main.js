@@ -30,14 +30,6 @@ let board, turn, winner;
 /*----- cached element references -----*/
 
 let stonesEl = document.getElementsByClassName('stones').textContent;
-// let vormirStonesEl = document.getElementById('stonesV').textContent;
-// let sakaarStonesEl = document.getElementById('stonesS').textContent;
-// console.log(sakaarStonesEl);
-// let knowhereStonesEl = document.getElementById('stonesK').textContent;
-// let xandarStonesEl = document.getElementById('stonesX').textContent;
-// let asgardStonesEl = document.getElementById('stonesA').textContent;
-// let earthStonesEl = document.getElementById('stonesE').textContent;
-
 
 /*----- event listeners -----*/
 
@@ -58,6 +50,11 @@ function init() {
 
 function render() {
     renderBoard();
+    renderMessage();
+}
+
+function renderMessage() {
+
 }
 
 function renderBoard() {
@@ -70,6 +67,17 @@ function renderBoard() {
         // cellEl.innerText = PLAYERS[cellVal];
         cellEl.innerHTML = num;
     });
+    if(turn === 1) {
+        document.getElementById('thanosGif').style.visibility = 'hidden';
+        document.getElementById('turnT').style.visibility = 'hidden';
+        document.getElementById('avengersGif').style.visibility = 'visible';
+        document.getElementById('turnA').style.visibility = 'visible';
+    } else {
+        document.getElementById('avengersGif').style.visibility = 'hidden';
+        document.getElementById('turnA').style.visibility = 'hidden';
+        document.getElementById('thanosGif').style.visibility = 'visible';
+        document.getElementById('turnT').style.visibility = 'visible';
+    }
   }
 
 function handleInstruct(evt) {

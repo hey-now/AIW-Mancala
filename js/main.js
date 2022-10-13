@@ -163,28 +163,28 @@ function handleFirstMove (evt) {
             board[currPos] += 1;
             stones--;
             currPos++;
-            console.log(board);
-            console.log('currPos :', currPos);
-            // console.log('boardValue/currPos1/checkZero/boardValue[checkZero]: ', board[currPos], '/', currPos, '/', checkZero, '/', board[checkZero]);
+            console.log('1st if');
         } else if (currPos === 6 && turn === 1) {
             board[currPos] += 1;
             stones--;
             currPos++;
-            // console.log('board/currPos2: ', board[currPos]);
+            console.log('2nd if');
         } else if (currPos === 6 && turn !== 1) {
             currPos++;
-            // console.log('board/currPos3: ', board[currPos]);
+            console.log('3rd if');
         } else if (currPos === 13 && turn === -1) {
+            board[currPos - 1] = 0;
             board[currPos] += 1;
             stones--;
             currPos++;
-            // console.log('board/currPos4: ', board[currPos]);
+            console.log('4th if');
         } else if (currPos === 13 && turn !== -1) {
             currPos++;
-            // console.log('board/currPos5: ', board[currPos]);
+            console.log('5th if');
         } 
         if(currPos === 14) {
             currPos = 0;
+            console.log('6th if');
         }
         if(stones === 0 && currPos !== 13 && currPos !== 6) {
             console.log('stones:', stones);
@@ -192,13 +192,15 @@ function handleFirstMove (evt) {
                 currPos = currPos - 1;
                 checkAvengersSide(currPos)
             } else if (turn === -1 && currPos > 6) {
+                board[currPos] += 1;
                 currPos = currPos - 1;
                 checkThanosSide(currPos)
-            } 
+            }
         }
     }
     console.log('after while currPos',currPos);
     if (turn === 1 && currPos === 7) {
+        console.log('last if fired');
         renderBoard()
     } else if (turn === -1 && currPos === 0) {
         renderBoard();

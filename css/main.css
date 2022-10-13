@@ -2,61 +2,71 @@
     box-sizing: border-box;
 }
 body {
-    margin: 0;
     background: url(https://imgur.com/1ACffud.jpeg) no-repeat fixed;
     background-color: rgb(20, 24, 24);
     background-size: 80% 100%;
     background-position: 22vh;
     display: flex;
     align-items: center;
-    flex-direction: column;
+    justify-content: center;
     gap: 100px;
-}
-#logo {
-    height: 100px;
-    margin-left: 45vh;
-    margin-top: 5vh;
-}
-#logo2 {
-    height: 500px;
-    margin-left: 110px;
-    margin-top: -190px;
+    height: 100vh;
+    margin: auto;
 }
 #board {
-    margin-top: 20vh;
-    display: flex;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 20% 70% 20%;
+    grid-template-rows: 20% 80% 20%;
+    /* align-items: center;
     justify-content: center;
-    flex-direction: row;
-    height: 60vh;
-    width: 175vh;
+    flex-direction: row; */
+    height: auto;
+    width: auto;
     background-color: rgba(20, 24, 24, .8);
+    margin-left: -700px;
 }
 #collectThanos {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end: 4;
     height: 100%;
-    width: 100vh;
+    width: auto;
+    display: flex;
     background: url("https://imgur.com/0h04Uob.jpeg") no-repeat;
     background-size: 30vh;
     background-position: center;
-    background-color: black;
+    background-color: rgba(0, 0, 0, .6);
     border-top-left-radius: 5%;
     border-bottom-left-radius: 5%;
-    /* order: 1; */
+    justify-content: center;
+    align-items: center;
 }
-#midBoard {
-    height: 115%;
-    background: rgba(0, 0, 0, .6);
-    border-radius: 10%;
-    flex-direction: column;
+#logo {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    justify-self: stretch;
+}
+#logo2 {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    justify-self: stretch;
 }
 #collectAvengers {
+    grid-column-start: 3;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 4;
     height: 100%;
-    width: 100vh;
     align-self: flex-end;
     background: url("https://imgur.com/o2ZYwPy.png") no-repeat;
     background-size: 30vh;
     background-position: center;
-    background-color: black;
+    background-color: rgba(0, 0, 0, .6);
     border-top-right-radius: 5%;
     border-bottom-right-radius: 5%;
 }
@@ -68,20 +78,15 @@ body {
     border: 5px solid rgba(20, 24, 24, .8);
     border-radius: 10%;
     height: 15vh;
-    width: 20vh;
+    width: 30vh;
 }
 #thanosPlanets > section:hover {
     border: 5px solid rgba(20, 24, 24, .8);
     border-radius: 10%;
     height: 15vh;
-    width: 20vh;
+    width: 30vh;
     transition: all .2s ease-in-out;
     transform: scale(1.25);
-}
-#actionPane {
-    border: 5px solid rgba(20, 24, 24, .8);
-    height: 38vh;
-    flex-direction: column;
 }
 #avengersPlanets {
     display: flex;
@@ -95,13 +100,13 @@ body {
     border: 5px solid rgba(20, 24, 24, .8);
     border-radius: 10%;
     height: 15vh;
-    width: 20vh;
+    width: 30vh;
 }
 #avengersPlanets > section:hover {
     border: 5px solid rgba(20, 24, 24, .8);
     border-radius: 10%;
     height: 15vh;
-    width: 20vh;
+    width: 30vh;
     transition: all .2s ease-in-out;
     transform: scale(1.25);
 }
@@ -128,6 +133,14 @@ body {
 #knowhere {
     background: url("https://imgur.com/vvWG8Lk.png");
     background-size: cover;
+}
+#actionPane {
+    border: 5px solid rgba(20, 24, 24, .8);
+    background-color: rgba(0, 0, 0, .6);
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 500px 1000px 500px;
+    grid-template-rows: 20% 80% 20%;
 }
 #help, #settings {
     width: 50px;
@@ -184,6 +197,10 @@ body {
     text-align: start;
 }
 #thanosGif {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 3;
     margin-left: 50px;
     margin-top: 40px;
     height: 15vh;
@@ -198,19 +215,15 @@ body {
     text-align: start;
 }
 #avengersGif {
-    margin-left: 775px;
-    margin-top: 40px;
-    height: 15vh;
-    width: 20vh;
-    border-radius: 10%;   
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 3;
 }
 #playAgain {
     background-color: rgba(20, 24, 24, .8);
     color: white;
-    margin-left: 450px;
-    margin-top: 30px;
     border-radius: 10%;
     border-color: lightgray;
     border-width: 5px;
-    z-index: 4;
 }

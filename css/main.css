@@ -208,7 +208,7 @@ body {
     width: 20vh;
     border-radius: 10%;   
 }
-button {
+#playAgain {
     background-color: rgba(20, 24, 24, .8);
     color: white;
     margin-left: 450px;
@@ -216,4 +216,5 @@ button {
     border-radius: 10%;
     border-color: lightgray;
     border-width: 5px;
+    z-index: 4;
 }

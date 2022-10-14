@@ -23,20 +23,31 @@ let board, turn, winner, boardIds;
 
 /*----- cached element references -----*/
 
-let stonesEl = document.getElementsByClassName('stones').textContent;
+const stonesEl = document.getElementsByClassName('stones').textContent;
+const avengersGifEl = document.getElementById('avengersGif');
+const turnAEl = document.getElementById('turnA');
+const thanosGifEl = document.getElementById('thanosGif');
+const turnTEl = document.getElementById('turnT');
+const logoEl = document.getElementById('logo');
+const logo2El = document.getElementById('logo2');
+const instructEl = document.getElementById('instructions');
 
 /*----- event listeners -----*/
 
 document.getElementById('avengersPlanets').addEventListener('click', handleFirstMove);
 document.getElementById('thanosPlanets').addEventListener('click', handleFirstMove);
 document.getElementById('help').addEventListener('click', handleInstruct);
-document.getElementById('playAgain').addEventListener('click', init);
+window.addEventListener("load", event => {
+document.getElementById("playAgain").onclick = function() {
+    location.reload(true);
+    }
+});
 
 /*----- functions -----*/
 init();
 
 function init() {
-    board = [4, 4, 4, 4, 4, 4, 0, 4, 4, 4, 4, 4, 4, 0]; // board
+    board = [4, 4, 4, 4, 4, 4, 0, 4, 4, 4, 4, 4, 4, 0];
     turn = 1; //avengers turn
     winner = null;
     boardIds = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n'];
@@ -50,26 +61,26 @@ function render() {
 
 function renderMessage() {
     if (winner === 1) {
-        document.getElementById('avengersGif').style.visibility = 'visible';
-        document.getElementById('turnA').style.visibility = 'visible';
-        document.getElementById('avengersGif').style.marginLeft = '420px';
-        document.getElementById('turnA').style.marginLeft = '450px';
-        document.getElementById('turnA').innerHTML = 'Avengers Win!';
-        document.getElementById('thanosGif').style.visibility = 'hidden';
-        document.getElementById('turnT').style.visibility = 'hidden';
-        document.getElementById('logo').style.opacity = '15%';
-        document.getElementById('logo2').style.opacity = '15%';
+        avengersGifEl.style.visibility = 'visible';
+        turnAEl.style.visibility = 'visible';
+        avengersGifEl.style.marginLeft = '420px';
+        turnAEl.style.marginLeft = '450px';
+        turnAEl.innerHTML = 'Avengers Win!';
+        thanosGifEl.style.visibility = 'hidden';
+        turnTEl.style.visibility = 'hidden';
+        logoEl.style.opacity = '15%';
+        logo2El.style.opacity = '15%';
         
     } else if (winner === -1) {
-        document.getElementById('thanosGif').style.visibility = 'visible';
-        document.getElementById('turnT').style.visibility = 'visible';
-        document.getElementById('thanosGif').style.marginLeft = '420px';
-        document.getElementById('turnT').style.marginLeft = '450px';
-        document.getElementById('turnT').innerHTML = 'Thanos Wins';
-        document.getElementById('avengersGif').style.visibility = 'hidden';
-        document.getElementById('turnA').style.visibility = 'hidden';
-        document.getElementById('logo').style.opacity = '15%';
-        document.getElementById('logo2').style.opacity = '15%';
+        thanosGifEl.style.visibility = 'visible';
+        turnTEl.style.visibility = 'visible';
+        thanosGifEl.style.marginLeft = '420px';
+        turnTEl.style.marginLeft = '450px';
+        turnTEl.innerHTML = 'Thanos Wins';
+        avengersGifEl.style.visibility = 'hidden';
+        turnAEl.style.visibility = 'hidden';
+        logoEl.style.opacity = '15%';
+        logo2El.style.opacity = '15%';
     }
 }
 
@@ -79,74 +90,57 @@ function renderBoard() {
       // Iterate over the cells in the current collumn (colArr)
         const cellId = `${boardIds[Idx]}`;
         const cellEl = document.getElementById(cellId);
-        // cellEl.style.color = COLORS[cellVal];
-        // cellEl.innerText = PLAYERS[cellVal];
         cellEl.innerHTML = num;
     });
     if(turn === 1) {
-        document.getElementById('thanosGif').style.visibility = 'hidden';
-        document.getElementById('turnT').style.visibility = 'hidden';
-        document.getElementById('avengersGif').style.visibility = 'visible';
-        document.getElementById('turnA').style.visibility = 'visible';
-        document.getElementById('turnA').innerHTML = 'Avengers Turn!';
+        thanosGifEl.style.visibility = 'hidden';
+        turnTEl.style.visibility = 'hidden';
+        avengersGifEl.style.visibility = 'visible';
+        turnAEl.style.visibility = 'visible';
+        turnAEl.innerHTML = 'Avengers Turn!';
     } else {
-        document.getElementById('avengersGif').style.visibility = 'hidden';
-        document.getElementById('turnA').style.visibility = 'hidden';
-        document.getElementById('thanosGif').style.visibility = 'visible';
-        document.getElementById('turnT').style.visibility = 'visible';
-        document.getElementById('turnT').innerHTML = 'Thanos Turn!';
+        avengersGifEl.style.visibility = 'hidden';
+        turnAEl.style.visibility = 'hidden';
+        thanosGifEl.style.visibility = 'visible';
+        turnTEl.style.visibility = 'visible';
+        turnTEl.innerHTML = 'Thanos Turn!';
 
     }
 }
 
 function handleInstruct(evt) {
     evt.preventDefault();
-    if (document.getElementById('instructions').style.visibility === 'hidden') {
-        document.getElementById('logo').style.visibility = 'hidden';
-        document.getElementById('logo2').style.visibility = 'hidden';
-        document.getElementById('thanosGif').style.visibility = 'hidden';
-        document.getElementById('turnT').style.visibility = 'hidden';
-        document.getElementById('avengersGif').style.visibility = 'hidden';
-        document.getElementById('turnA').style.visibility = 'hidden';
-        document.getElementById('instructions').style.visibility = 'visible';   
+    if (instructEl.style.visibility === 'hidden') {
+        logoEl.style.visibility = 'hidden';
+        logo2El.style.visibility = 'hidden';
+        thanosGifEl.style.visibility = 'hidden';
+        turnTEl.style.visibility = 'hidden';
+        avengersGifEl.style.visibility = 'hidden';
+        turnAEl.style.visibility = 'hidden';
+        instructEl.style.visibility = 'visible';   
     } else if (turn === 1) {
-        document.getElementById('logo').style.visibility = 'visible';
-        document.getElementById('logo2').style.visibility = 'visible';
-        document.getElementById('instructions').style.visibility = 'hidden';
-        document.getElementById('thanosGif').style.visibility = 'hidden';
-        document.getElementById('turnT').style.visibility = 'hidden';
-        document.getElementById('avengersGif').style.visibility = 'visible';
-        document.getElementById('turnA').style.visibility = 'visible';
+        logoEl.style.visibility = 'visible';
+        logo2El.style.visibility = 'visible';
+        instructEl.style.visibility = 'hidden';
+        thanosGifEl.style.visibility = 'hidden';
+        turnTEl.style.visibility = 'hidden';
+        avengersGifEl.style.visibility = 'visible';
+        turnAEl.style.visibility = 'visible';
     } else if (turn === -1) {
-        document.getElementById('logo').style.visibility = 'visible';
-        document.getElementById('logo2').style.visibility = 'visible';
-        document.getElementById('instructions').style.visibility = 'hidden';
-        document.getElementById('thanosGif').style.visibility = 'visible';
-        document.getElementById('turnT').style.visibility = 'visible';
-        document.getElementById('avengersGif').style.visibility = 'hidden';
-        document.getElementById('turnA').style.visibility = 'hidden';
+        logoEl.style.visibility = 'visible';
+        logo2El.style.visibility = 'visible';
+        instructEl.style.visibility = 'hidden';
+        thanosGifEl.style.visibility = 'visible';
+        turnTEl.style.visibility = 'visible';
+        avengersGifEl.style.visibility = 'hidden';
+        turnAEl.style.visibility = 'hidden';
     }
 }
-
-// function rndNum (min, max) {
-//     min = Math.ceil(min);
-//     max = Math.floor(max);
-//     return Math.floor(Math.random() * (max - min + 1) + min);
-//     console.log(rndNum)
-// }
-
-// function pickRandomStones() {
-    //     let randNum = rndNum(1, 6);
-    //     const randomStone = new Array();
-    //     return document.getElementById("thanosPlanets").innerHTML = '<img src="'+randomStone[randNum]+'" />';
-    // } 
 
 function handleFirstMove (evt) {
     let currPos = POSITION[evt.target.id];
     let stones = board[currPos];
     board[currPos] = 0;
-    console.log('turn/currPos:', turn, '/', currPos);
-    // console.log('tagname', evt.target.tagName, 'stones', stones, 'currPos', currPos);
     if (stones === 0 || 
         (turn === 1 && currPos >= 7) ||
         (turn === -1 && currPos <= 6) ||
@@ -156,38 +150,29 @@ function handleFirstMove (evt) {
         )
         return;
     currPos += 1;
-    // console.log('outside of while loop currPos + value/ checkZero + value: ', currPos, '+',board[currPos], '/', checkZero, '+', board[checkZero]);
     while (stones > 0) {
-        // sleep();
         if(currPos !== 6 && currPos !== 13) {
             board[currPos] += 1;
             stones--;
             currPos++;
-            console.log('1st if');
         } else if (currPos === 6 && turn === 1) {
             board[currPos] += 1;
             stones--;
             currPos++;
-            console.log('2nd if');
         } else if (currPos === 6 && turn !== 1) {
             currPos++;
-            console.log('3rd if');
         } else if (currPos === 13 && turn === -1) {
             board[currPos - 1] = 0;
             board[currPos] += 1;
             stones--;
             currPos++;
-            console.log('4th if');
         } else if (currPos === 13 && turn !== -1) {
             currPos++;
-            console.log('5th if');
         } 
         if(currPos === 14) {
             currPos = 0;
-            console.log('6th if');
         }
         if(stones === 0 && currPos !== 13 && currPos !== 6) {
-            console.log('stones:', stones);
             if (turn === 1 && currPos < 6) {
                 currPos = currPos - 1;
                 checkAvengersSide(currPos)
@@ -197,9 +182,7 @@ function handleFirstMove (evt) {
             }
         }
     }
-    console.log('after while currPos',currPos);
     if (turn === 1 && currPos === 7) {
-        console.log('last if fired');
         renderBoard()
     } else if (turn === -1 && currPos === 0) {
         renderBoard();
@@ -227,6 +210,7 @@ function checkAvengersRow() {
     };
     return winner;
 }
+
 function checkThanosRow() {
     let sum = 0;
     for (let i = 6; i < 13; i++) {
@@ -240,103 +224,76 @@ function checkThanosRow() {
     return winner;
 }
 
-
 function checkAvengersSide(currPos) {
-            // checking for zero on avengers side
-            if (board[currPos] === 1) {
-                console.log('this is a zero spot for avengers');
-                console.log('board/currPos6: ', board[currPos], '/', currPos);
-                if (currPos === 0 && board[12] > 0) {
-                    board[currPos] = 0;
-                    board[6] += 1;
-                    board[6] += board[12];
-                    board[12] = 0;
-                } else if (currPos === 1 && board[11] > 0) {
-                    board[currPos] = 0;
-                    board[6] += 1;
-                    board[6] += board[11];
-                    board[11] = 0;
-                } else if (currPos === 2 && board[10] > 0) {
-                    board[currPos] = 0;
-                    board[6] += 1;
-                    board[6] += board[10];
-                    board[10] = 0;
-                } else if (currPos === 3 && board[9] > 0) {
-                    board[currPos] = 0;
-                    board[6] += 1;
-                    board[6] += board[9];
-                    board[9] = 0;
-                } else if (currPos === 4 && board[8] > 0) {
-                    board[currPos] = 0;
-                    board[6] += 1;
-                    board[6] += board[8];
-                    board[8] = 0;
-                } else if (currPos === 5 && board[7] > 0) {
-                    board[currPos] = 0;
-                    board[6] += 1;
-                    board[6] += board[7];
-                    board[7] = 0;
-                }
-            }
+    // checking for zero on avengers side
+    if (board[currPos] === 1) {
+        if (currPos === 0 && board[12] > 0) {
+            board[currPos] = 0;
+            board[6] += 1;
+            board[6] += board[12];
+            board[12] = 0;
+        } else if (currPos === 1 && board[11] > 0) {
+            board[currPos] = 0;
+            board[6] += 1;
+            board[6] += board[11];
+            board[11] = 0;
+        } else if (currPos === 2 && board[10] > 0) {
+            board[currPos] = 0;
+            board[6] += 1;
+            board[6] += board[10];
+            board[10] = 0;
+        } else if (currPos === 3 && board[9] > 0) {
+            board[currPos] = 0;
+            board[6] += 1;
+            board[6] += board[9];
+            board[9] = 0;
+        } else if (currPos === 4 && board[8] > 0) {
+            board[currPos] = 0;
+            board[6] += 1;
+            board[6] += board[8];
+            board[8] = 0;
+        } else if (currPos === 5 && board[7] > 0) {
+            board[currPos] = 0;
+            board[6] += 1;
+            board[6] += board[7];
+            board[7] = 0;
+        }
+    }
 }
 
 function checkThanosSide(currPos) {
-        //checking for zero on thanos side
-        if (board[currPos] === 1) {
-            console.log('this is a zero spot for thanos');
-            console.log('board/currPos6: ', board[currPos], '/', currPos);
-            if (currPos === 7 && board[5] > 0) {
-                board[currPos] = 0;
-                board[13] += 1;
-                board[13] += board[5];
-                board[5] = 0;
-            } else if (currPos === 8 && board[4] > 0) {
-                board[currPos] = 0;
-                board[13] += 1;
-                board[13] += board[4];
-                board[4] = 0;
-            } else if (currPos === 9 && board[3] > 0) {
-                board[currPos] = 0;
-                board[13] += 1;
-                board[13] += board[3];
-                board[3] = 0;
-            } else if (currPos === 10 && board[2] > 0) {
-                board[currPos] = 0;
-                board[13] += 1;
-                board[13] += board[2];
-                board[2] = 0;
-            } else if (currPos === 11 && board[1] > 0) {
-                board[currPos] = 0;
-                board[13] += 1;
-                board[13] += board[1];
-                board[1] = 0;
-            } else if (currPos === 12 && board[0] > 0) {
-                board[currPos] = 0;
-                board[13] += 1;
-                board[13] += board[0];
-                board[0] = 0;
-            }
+    //checking for zero on thanos side
+    if (board[currPos] === 1) {
+        if (currPos === 7 && board[5] > 0) {
+            board[currPos] = 0;
+            board[13] += 1;
+            board[13] += board[5];
+            board[5] = 0;
+        } else if (currPos === 8 && board[4] > 0) {
+            board[currPos] = 0;
+            board[13] += 1;
+            board[13] += board[4];
+            board[4] = 0;
+        } else if (currPos === 9 && board[3] > 0) {
+            board[currPos] = 0;
+            board[13] += 1;
+            board[13] += board[3];
+            board[3] = 0;
+        } else if (currPos === 10 && board[2] > 0) {
+            board[currPos] = 0;
+            board[13] += 1;
+            board[13] += board[2];
+            board[2] = 0;
+        } else if (currPos === 11 && board[1] > 0) {
+            board[currPos] = 0;
+            board[13] += 1;
+            board[13] += board[1];
+            board[1] = 0;
+        } else if (currPos === 12 && board[0] > 0) {
+            board[currPos] = 0;
+            board[13] += 1;
+            board[13] += board[0];
+            board[0] = 0;
         }
+    }
 }
-
-
-// function sleep() {
-//     function displayText(str) {
-//     console.log(str)
-//  }
-//  var i = 0;
- 
-//  var a = [12];
- 
-//  function timedLoop() {
-//  setTimeout(function () {
-//      displayText(a[i]);
-//      i++;
-//      if(i < a.length) {
-//          timedLoop();
-//      }
-//  }, 2000)
-//  }
- 
-//  timedLoop();
-// }

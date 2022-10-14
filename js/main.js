@@ -31,7 +31,9 @@ const turnTEl = document.getElementById('turnT');
 const logoEl = document.getElementById('logo');
 const logo2El = document.getElementById('logo2');
 const instructEl = document.getElementById('instructions');
-
+const bgPlayer = document.getElementById('bg-player');
+// adjust player to 50% volume
+bgPlayer.volume = .5;
 /*----- event listeners -----*/
 
 document.getElementById('avengersPlanets').addEventListener('click', handleFirstMove);

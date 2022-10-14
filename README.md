@@ -40,7 +40,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-<img align="center" src="https://imgur.com/adimcDC.png" alt="screenShot">
+<img align="center" src="https://imgur.com/1ZuI9Mu.png" alt="screenShot">
 
 <p>
 <br>

@@ -52,8 +52,8 @@ function renderMessage() {
     if (winner === 1) {
         document.getElementById('avengersGif').style.visibility = 'visible';
         document.getElementById('turnA').style.visibility = 'visible';
-        document.getElementById('avengersGif').style.marginLeft = 'auto';
-        document.getElementById('turnA').style.marginLeft = 'auto';
+        document.getElementById('avengersGif').style.marginLeft = '420px';
+        document.getElementById('turnA').style.marginLeft = '450px';
         document.getElementById('turnA').innerHTML = 'Avengers Win!';
         document.getElementById('thanosGif').style.visibility = 'hidden';
         document.getElementById('turnT').style.visibility = 'hidden';
@@ -192,7 +192,6 @@ function handleFirstMove (evt) {
                 currPos = currPos - 1;
                 checkAvengersSide(currPos)
             } else if (turn === -1 && currPos > 6) {
-                board[currPos] += 1;
                 currPos = currPos - 1;
                 checkThanosSide(currPos)
             }
@@ -247,28 +246,33 @@ function checkAvengersSide(currPos) {
             if (board[currPos] === 1) {
                 console.log('this is a zero spot for avengers');
                 console.log('board/currPos6: ', board[currPos], '/', currPos);
-                board[currPos] = 0;
                 if (currPos === 0 && board[12] > 0) {
+                    board[currPos] = 0;
                     board[6] += 1;
                     board[6] += board[12];
                     board[12] = 0;
                 } else if (currPos === 1 && board[11] > 0) {
+                    board[currPos] = 0;
                     board[6] += 1;
                     board[6] += board[11];
                     board[11] = 0;
                 } else if (currPos === 2 && board[10] > 0) {
+                    board[currPos] = 0;
                     board[6] += 1;
                     board[6] += board[10];
                     board[10] = 0;
                 } else if (currPos === 3 && board[9] > 0) {
+                    board[currPos] = 0;
                     board[6] += 1;
                     board[6] += board[9];
                     board[9] = 0;
                 } else if (currPos === 4 && board[8] > 0) {
+                    board[currPos] = 0;
                     board[6] += 1;
                     board[6] += board[8];
                     board[8] = 0;
                 } else if (currPos === 5 && board[7] > 0) {
+                    board[currPos] = 0;
                     board[6] += 1;
                     board[6] += board[7];
                     board[7] = 0;
@@ -281,28 +285,33 @@ function checkThanosSide(currPos) {
         if (board[currPos] === 1) {
             console.log('this is a zero spot for thanos');
             console.log('board/currPos6: ', board[currPos], '/', currPos);
-            board[currPos] = 0;
             if (currPos === 7 && board[5] > 0) {
+                board[currPos] = 0;
                 board[13] += 1;
                 board[13] += board[5];
                 board[5] = 0;
             } else if (currPos === 8 && board[4] > 0) {
+                board[currPos] = 0;
                 board[13] += 1;
                 board[13] += board[4];
                 board[4] = 0;
             } else if (currPos === 9 && board[3] > 0) {
+                board[currPos] = 0;
                 board[13] += 1;
                 board[13] += board[3];
                 board[3] = 0;
             } else if (currPos === 10 && board[2] > 0) {
+                board[currPos] = 0;
                 board[13] += 1;
                 board[13] += board[2];
                 board[2] = 0;
             } else if (currPos === 11 && board[1] > 0) {
+                board[currPos] = 0;
                 board[13] += 1;
                 board[13] += board[1];
                 board[1] = 0;
             } else if (currPos === 12 && board[0] > 0) {
+                board[currPos] = 0;
                 board[13] += 1;
                 board[13] += board[0];
                 board[0] = 0;

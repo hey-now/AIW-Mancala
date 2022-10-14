@@ -206,9 +206,10 @@ body {
 }
 #playAgain {
     background-color: rgba(20, 24, 24, .8);
+    position: absolute;
     color: white;
     margin-left: 450px;
-    margin-top: 30px;
+    margin-top: -50px;
     border-radius: 10%;
     border-color: lightgray;
     border-width: 5px;

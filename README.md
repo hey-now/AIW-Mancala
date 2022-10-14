@@ -73,7 +73,7 @@ When I saw that the instructors offered a choice of Mancala, I chose it.  Mancal
 
 This game is a fully deployed browser based game, and does not require any installation.
 
-* <a hfer="https://hey-now.github.io/AIW-Mancala/">Click here to play now!</a>
+* <a href="https://hey-now.github.io/AIW-Mancala/">Click here to play now!</a>
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 

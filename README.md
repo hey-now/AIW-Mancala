@@ -44,10 +44,10 @@
 
 <p>
 <br>
-The Avengers Infinity War Marvel Mancala project came into creation during my time at the General Assembly - 9/26/22 Software Enginineering Bootcamp.  For our first project, the instructors tasked us with creating a browswer game from certain choices.  The requirements were below.  
+The Avengers Infinity War Marvel Mancala project came into creation during my time at the General Assembly - 9/26/22 Software Engineering Bootcamp.  For our first project, the instructors tasked us with creating a browser based game from certain choices.  The requirements were below.  
 
 Requirements:
-* Use everything we learning in the first unit of Front End development
+* Use everything we learned in the first unit of Front End development
 * Build the HTML, CSS, and Javascript files from scratch
 * Have fun and learn!
 

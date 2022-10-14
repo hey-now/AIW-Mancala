@@ -84,6 +84,7 @@ This game is a fully deployed browser based game, and does not require any insta
 - Add delays and animation to the numbering
 - Add sounds for moves and background track
 - Add better logos for the turn text
+- Optimize layout for different media sources
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 

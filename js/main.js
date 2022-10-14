@@ -104,7 +104,6 @@ function renderBoard() {
         thanosGifEl.style.visibility = 'visible';
         turnTEl.style.visibility = 'visible';
         turnTEl.innerHTML = 'Thanos Turn!';
-
     }
 }
 

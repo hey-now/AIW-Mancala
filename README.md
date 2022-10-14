@@ -61,7 +61,7 @@ When I saw that the instructors offered a choice of Mancala, I chose it.  Mancal
 ### Built With
 </br>
 
-* <img align="center" src="https://imgur.com/s1jEwqt.png" alt="platform logos" height="100" width="150">
+* <img align="center" src="https://imgur.com/bdHiSMh.png" alt="platform logos" height="100" width="150">
 * <img align="center" src="https://imgur.com/A83yWaA.png" alt="vs code logo" height="100" width="150">
 
 <p align="right">(<a href="#top">back to top</a>)</p>

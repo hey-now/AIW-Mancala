@@ -5,10 +5,8 @@ body {
     margin: 0;
     background: url(https://imgur.com/1ACffud.jpeg) no-repeat fixed;
     background-color: rgb(20, 24, 24);
-    background-size: cover;
     background-size: 80% 100%;
     background-position: 22vh;
-    /* height: 100vh; */
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -30,8 +28,6 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: row;
-    border: 15px solid rgba(20, 24, 24, .8);
-    border-radius: 5%;
     height: 60vh;
     width: 175vh;
     background-color: rgba(20, 24, 24, .8);
@@ -208,12 +204,14 @@ body {
     width: 20vh;
     border-radius: 10%;   
 }
-button {
+#playAgain {
     background-color: rgba(20, 24, 24, .8);
+    position: absolute;
     color: white;
     margin-left: 450px;
-    margin-top: 30px;
+    margin-top: -50px;
     border-radius: 10%;
     border-color: lightgray;
     border-width: 5px;
+    z-index: 4;
 }

@@ -15,13 +15,11 @@ body {
 }
 #board {
     display: grid;
-    grid-template-columns: 20% 70% 20%;
-    grid-template-rows: 20% 80% 20%;
-    /* align-items: center;
+    grid-template-columns: 20vmin 20vmin 20vmin;
+    grid-template-rows: 20vmin 20vmin 20vmin;
+    align-items: center;
     justify-content: center;
-    flex-direction: row; */
-    height: auto;
-    width: auto;
+    flex-direction: row;
     background-color: rgba(20, 24, 24, .8);
     margin-left: -700px;
 }
